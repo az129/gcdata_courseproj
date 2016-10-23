@@ -28,12 +28,12 @@ datameanstd <-  data[,grep("mean\\.\\.|std\\.\\.", names(data), value = T)]
 
 
 # make data variable names descriptive and tidy
-names(data) <- gsub("-|,|\\(|\\)|\\.", "", names(data)) %>% tolower()
-names(data) <- gsub("bodybody", "body", names(data))
+names(datameanstd) <- gsub("-|,|\\(|\\)|\\.", "", names(datameanstd)) %>% tolower()
+names(datameanstd) <- gsub("bodybody", "body", names(datameanstd))
 
 
 # extract 2nd data set with average of each activity and subject
-data$subject <- as.factor(data$subject)
-data2 <- aggregate(. ~subject + activity, data, FUN = mean)
+datameanstd$subject <- as.factor(datameanstd$subject)
+data2 <- aggregate(. ~subject + activity, datameanstd, FUN = mean)
 write.table(data2,file="tidydata2.txt",row.names = F)
 
