@@ -1,1 +1,1 @@
-# gcdata_courseproj
+# Getting and Cleaning Data - Course Project
